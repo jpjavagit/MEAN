@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="/css/style.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+  <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/controller.js"></script>
+
+
+  <title>City Register</title>
+</head>
+
+<body>
+
+    	<div ng-controller="ctrl" class="container mtop">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Insert your City</h3>
+          </div>
+          <div class="panel-body">
+
+            <form name="form">
+              <div  class="row">
+
+                <div class="col-md-1">
+                  <strong>City:</strong>
+                </div>
+
+                <div class="col-md-10">
+                  <input type="text" required name="description" ng-model="item.description" class="form-control"/>
+                </div>
+
+                <div class="col-md-1">
+                  <button ng-disabled="form.description.$error.required" ng-click="save()" class="btn btn-primary" type="button">
+                    <span class="glyphicon glyphicon-plus"/>
+                  </button>
+                </div>
+              </div>
+            <hr/>
+
+            <div ng-hide="false" class="row">
+              <div class="col-md-2">
+                <button class="btn btn-success" ng-click="getItens()" type="button"/>Search</button>
+              </div>
+            </div>
+
+            <hr/>
+
+            <table class="table">
+              <tr>
+                <th>City</th>
+              </tr>
+              <tr ng-repeat="item in itens">
+                <td>{{item.description}}</td>
+              </tr>
+            </table>
+          </form>
+          </div>
+        </div>
+      </div>
+
+</body>
+
+</html>
